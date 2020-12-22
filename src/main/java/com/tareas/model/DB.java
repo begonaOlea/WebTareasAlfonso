@@ -7,7 +7,7 @@ package com.tareas.model;
  */
 
 
-import com.biblioteca.excepciones.DBException;
+import com.tareas.excepciones.DBException;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -23,52 +23,53 @@ public class DB {
     private static Set<Usuario> usuarios;
     //private static int ultimoId = 0;
     static{
-        tareas=new HashMap<Integer,Libro>();
-        tareas.put(1, new Tarea(1,"Tocan las Campanas a Concejo","agustin lasai rodrigez",23.0,10,true));
-        tareas.put(2, new Tarea(2,"Don Quijote de la Mancha","Miguel de Cervantes",19.0,15,false));
-        tareas.put(3, new Tarea(3,"El Tamborilero","Pedro Luís Macías",13.0,32,true));
-        tareas.put(4, new Tarea(4,"Campos de Castilla","Antonio Machado",12.0,22,true));
+        tareas=new HashMap<Integer,Tarea>();
+        tareas.put(1, new Tarea(1,"Instalación Sistema","TO-DO",false));
+        tareas.put(2, new Tarea(2,"A la espera de recepción","TO-DO",false));
+        tareas.put(3, new Tarea(3,"Compra de materiales","TO-DO",false));
+        tareas.put(4, new Tarea(4,"Chequear la red","TO-DO",false));
+        tareas.put(5, new Tarea(4,"Revisión sistema alimentación","TO-DO",false));
+        
         //ultimoId = 4;
         usuarios = new HashSet<Usuario>();
-        usuarios.add(new Usuario("Juan@gmail.com", "Juan Sandoval"));
-        usuarios.add(new Usuario("Pedrosanto@gmail.com", "Pedro Altoveri"));
+        usuarios.add(new Usuario("juan@gmail.com", "Juan Sandoval"));
+        usuarios.add(new Usuario("pedrosanto@gmail.com", "Pedro Santoveri"));
     }
     public DB() {
         
     }
     
-    public static synchronized Libro getLibro(Integer id){
-        Libro l = libros.get(id);
+    public static synchronized Tarea getTarea(Integer id){
+        Tarea l = tareas.get(id);
         return l;
     }
     
-    public static synchronized void addLibro(Libro libro) throws DBException{
-        if(libros.containsKey(libro.getId())){
-            throw new DBException("El libro ya existe con el Id: "+libro.getId());
+    public static synchronized void addTarea(Tarea tarea) throws DBException{
+        if(tareas.containsKey(tarea.getIdTarea())){
+            throw new DBException("La tarea ya existe con el Id: "+tarea.getIdTarea());
         }
         
-        libros.put(libro.getId(), libro);
-        
+        tareas.put(tarea.getIdTarea(), tarea);
     }
     
-    public static synchronized void alquilaLibro(int id){
+    public static synchronized void mueveTarea(int id){
         //mejorar lanzar una exceopcion si id no existe id
         //sino 
-        libros.get(id).setDisponible(false);
+        //tareas.get(id).setDisponible(false);
     }
     
-    public static synchronized Collection<Libro> getAllLibros(){
-        return libros.values();
+    public static synchronized Collection<Tarea> getAllTareas(){
+        return tareas.values();
     }
     
-    public  static  Collection<Libro> getLibrosPrestados(){
-        Set<Libro> prestados = new HashSet<Libro>();
-        for(Libro l: libros.values()){
-            if(! l.isDisponible()){
-                prestados.add(l);
+    public  static  Collection<Tarea> getTareasEstado(String estado){
+        Set<Tarea> tareasEstado = new HashSet<Tarea>();
+        for(Tarea t: tareas.values()){
+            if(t.getEstado()==estado){
+                tareasEstado.add(t);
             }
         }        
-        return prestados;
+        return tareasEstado;
     }
     
     public synchronized static Collection<Usuario> getUsuarios() {
