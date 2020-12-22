@@ -52,7 +52,7 @@ public class DB {
         tareas.put(tarea.getIdTarea(), tarea);
     }
     
-    public static synchronized void mueveTarea(int id){
+    public static synchronized void cambioEstadoTarea(int id, String estado){
         //mejorar lanzar una exceopcion si id no existe id
         //sino 
         //tareas.get(id).setDisponible(false);
@@ -70,6 +70,14 @@ public class DB {
             }
         }        
         return tareasEstado;
+    }
+    
+    public  static  Collection<Tarea> getTareas(){
+        Set<Tarea> tareasAll = new HashSet<Tarea>();
+        for(Tarea t: tareas.values()){
+            tareasAll.add(t);
+        }        
+        return tareasAll;
     }
     
     public synchronized static Collection<Usuario> getUsuarios() {
