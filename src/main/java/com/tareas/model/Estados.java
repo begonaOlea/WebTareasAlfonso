@@ -10,7 +10,7 @@ package com.tareas.model;
  * @author user
  */
 public enum Estados {
-    TODO("TO DO"), INPROGRESS("IN PROGRESS"), DONE("DONE");
+    TODO("TO-DO"), INPROGRESS("IN-PROGRESS"), DONE("DONE");
     
     private String valor;
 

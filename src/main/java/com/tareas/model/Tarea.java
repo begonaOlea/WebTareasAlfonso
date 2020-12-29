@@ -64,5 +64,6 @@ public class Tarea {
     
     @Override
     public String toString() {
-        return "Tarea{" + "idTarea=" + idTarea + ", descripcion=" + descripcion + ", estado=" + estado + ", archivado=" + archivado +'}';    }
+        return "Tarea{" + "idTarea=" + idTarea + ", descripcion=" + descripcion + ", estado=" + estado + ", archivado=" + archivado +'}'+"\n";    
     }
+}

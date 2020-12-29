@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="col-12">
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link active" href="index.jsp">Inicio</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="alta-tarea.jsp">Alta Tarea</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="lista-tareas.jsp">Lista Tareas</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="mtto-tareas.jsp">Mtto. Tareas</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="lista-tareas-archivo.jsp">Tareas Archivadas</a>
+            </li>
+             <li class="nav-item">
+                <a class="nav-link" href="alta-usuario.jsp">Alta Usuario</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="lista-usuarios.jsp">Lista Usuarios</a>
+            </li>
+          </ul>
+    </div>
+</div>
+

@@ -27,8 +27,9 @@ public class DB {
         tareas.put(1, new Tarea(1,"Instalación Sistema","TO-DO",false));
         tareas.put(2, new Tarea(2,"A la espera de recepción","TO-DO",false));
         tareas.put(3, new Tarea(3,"Compra de materiales","TO-DO",false));
-        tareas.put(4, new Tarea(4,"Chequear la red","TO-DO",false));
-        tareas.put(5, new Tarea(4,"Revisión sistema alimentación","TO-DO",false));
+        tareas.put(4, new Tarea(4,"Chequeo de la red","IN-PROGRESS",false));
+        tareas.put(5, new Tarea(5,"Cambio tarjeta gráfica","IN-PROGRESS",false));
+        tareas.put(6, new Tarea(6,"Revisión sistema alimentación","DONE",false));
         
         //ultimoId = 4;
         usuarios = new HashSet<Usuario>();
@@ -40,22 +41,23 @@ public class DB {
     }
     
     public static synchronized Tarea getTarea(Integer id){
-        Tarea l = tareas.get(id);
-        return l;
+        Tarea t = tareas.get(id);
+        return t;
     }
     
     public static synchronized void addTarea(Tarea tarea) throws DBException{
         if(tareas.containsKey(tarea.getIdTarea())){
             throw new DBException("La tarea ya existe con el Id: "+tarea.getIdTarea());
         }
-        
         tareas.put(tarea.getIdTarea(), tarea);
     }
     
-    public static synchronized void cambioEstadoTarea(int id, String estado){
-        //mejorar lanzar una exceopcion si id no existe id
-        //sino 
-        //tareas.get(id).setDisponible(false);
+    public static synchronized void cambioEstadoTarea(int id, String estado) throws DBException{
+        //mejor lanzar una excepcion si id no existe
+        if(!tareas.containsKey(tareas.get(id).getIdTarea())){
+            throw new DBException("No existe Tarea con Id: "+tareas.get(id).getIdTarea());
+        }
+        tareas.get(id).setEstado(estado);
     }
     
     public static synchronized Collection<Tarea> getAllTareas(){
@@ -80,6 +82,16 @@ public class DB {
         return tareasAll;
     }
     
+    public  static  Collection<Tarea> getTareasArchivadas(){
+        Set<Tarea> archivadas = new HashSet<Tarea>();
+        for(Tarea t: tareas.values()){
+            if(t.isArchivado()){
+                archivadas.add(t);
+            }
+        }        
+        return archivadas;
+    }
+    
     public synchronized static Collection<Usuario> getUsuarios() {
         return usuarios;
     }
@@ -89,6 +101,12 @@ public class DB {
         if (!seAñade) {
             throw new DBException("El Usuario no ha sido añadido. Ya existe");
         }
+    }
+    
+    public static synchronized void archivaTarea(int id){
+        //mejorar lanzar una excepcion si id no existe id
+        //sino 
+        tareas.get(id).setArchivado(true);
     }
     
 }

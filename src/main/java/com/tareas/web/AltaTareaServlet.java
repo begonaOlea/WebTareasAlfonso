@@ -19,14 +19,13 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author user
+ * @author Admin
  */
-@WebServlet(name = "AltaNuevaTareaServlet", urlPatterns = {"/alta-nueva-tarea"})
-public class AltaNuevaTareaServlet extends HttpServlet {
+@WebServlet(name = "AltaTareaServlet", urlPatterns = {"/alta-tarea"})
+public class AltaTareaServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        
          //leer param
         String sId = req.getParameter("id");
         String descrip = req.getParameter("descrip");
@@ -79,7 +78,8 @@ public class AltaNuevaTareaServlet extends HttpServlet {
         
         //DESPACHA LA RESPUESTA
         if (valido) {
-            sJSPAMostrar = "/mtto-tareas.jsp";
+            //sJSPAMostrar = "/mtto-tareas.jsp";
+            sJSPAMostrar = "/lista-tareas.jsp";
         }else{
             sJSPAMostrar="/alta-tarea.jsp";
             req.setAttribute("msgErrorId", msgErrorId);
@@ -89,10 +89,7 @@ public class AltaNuevaTareaServlet extends HttpServlet {
         }
         RequestDispatcher rd = req.getRequestDispatcher(sJSPAMostrar);
         rd.forward(req, resp);
-        
-         
     }
 
    
-
 }
