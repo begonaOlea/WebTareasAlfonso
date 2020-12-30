@@ -9,8 +9,6 @@ import com.tareas.excepciones.DBException;
 import com.tareas.model.DB;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,8 +20,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Admin
  */
-@WebServlet(name = "CambioEstadoTareaServlet", urlPatterns = {"/cambio-estado-tarea12"})
-public class CambioEstadoTareaServlet extends HttpServlet {
+@WebServlet(name = "CambioEstadoTareaServlet3", urlPatterns = {"/cambio-estado-tarea23"})
+public class CambioEstadoTareaServlet3 extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -50,7 +48,7 @@ public class CambioEstadoTareaServlet extends HttpServlet {
         
         if (mensaje==null) {
             try {
-                DB.cambioEstadoTarea(id, "IN-PROGRESS");
+                DB.cambioEstadoTarea(id, "DONE");
             } catch (DBException ex) {
                 mensaje = ex.getMessage();
             }
@@ -61,7 +59,8 @@ public class CambioEstadoTareaServlet extends HttpServlet {
         //
         req.setAttribute("mensaje", mensaje);
         rd.forward(req, resp);
-    }
-    
 
+    }
+
+    
 }

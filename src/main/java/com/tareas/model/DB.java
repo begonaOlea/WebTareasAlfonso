@@ -64,10 +64,11 @@ public class DB {
         return tareas.values();
     }
     
-    public  static  Collection<Tarea> getTareasEstado(String estado){
+      
+    public  static  Collection<Tarea> getTareasPorEstado(Estados estado){
         Set<Tarea> tareasEstado = new HashSet<Tarea>();
         for(Tarea t: tareas.values()){
-            if(t.getEstado()==estado){
+            if(t.getEstado().equals(estado.getValor())){
                 tareasEstado.add(t);
             }
         }        

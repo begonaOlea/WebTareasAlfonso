@@ -15,7 +15,7 @@ public class Prueba {
     public static void main(String[] args) throws DBException {
         System.out.println("Tareas: "+DB.getTareas());
         DB.cambioEstadoTarea(1, "DONE");
-        System.out.println("Tareas Estado: "+DB.getTareasEstado("DONE"));
+        System.out.println("Tareas Estado: "+DB.getTareasPorEstado(Estados.DONE));
         
         
     }

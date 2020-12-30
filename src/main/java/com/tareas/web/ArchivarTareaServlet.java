@@ -24,7 +24,7 @@ public class ArchivarTareaServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-       //leer param id
+        //leer param id
         //validar 
         //alquilar
         //despachar la peticion a jsp lista-libros

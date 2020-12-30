@@ -32,7 +32,7 @@
                     <form action="cambio-estado-tarea" method="get">
                         <label> Selecciona una tarea de la lista TO-DO</label>
                         <%
-                            Collection<Tarea> lista1 = DB.getTareasEstado("TO-DO");
+                            Collection<Tarea> lista1 = DB.getTareasPorEstado(Estados.TODO);
                         %>
                         <table class="table">
                             <thead>
@@ -65,7 +65,7 @@
                     <form action="cambio-estado-tarea" method="get">
                         <label> Selecciona una tarea de la lista IN-PROGRESS</label>
                         <%
-                            Collection<Tarea> lista2 = DB.getTareasEstado("IN-PROGRESS");
+                            Collection<Tarea> lista2 = DB.getTareasPorEstado(Estados.INPROGRESS);
                         %>
                         <table class="table">
                             <thead>
@@ -98,7 +98,7 @@
                     <form action="cambio-estado-tarea" method="get">
                         <label>Selecciona una tarea de la lista DONE</label>
                         <%
-                            Collection<Tarea> lista3 = DB.getTareasEstado("DONE");
+                            Collection<Tarea> lista3 = DB.getTareasPorEstado(Estados.DONE);
                         %>
                         <table class="table">
                             <thead>
