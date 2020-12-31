@@ -12,6 +12,7 @@ package com.tareas.model;
 public class Usuario {
     private String email;
     private String nombre;
+    private String apellidos;
     private String clave;
     private String localidad;
 
@@ -20,14 +21,15 @@ public class Usuario {
         this.nombre = nombre;
     }
 
-    public Usuario(String email, String nombre, String clave, String localidad) {
+    public Usuario(String email, String nombre, String apellidos,String clave, String localidad) {
         this.email = email;
         this.nombre = nombre;
+        this.apellidos= apellidos;
         this.clave = clave;
         this.localidad = localidad;
     }
-    
-    
+
+     
     public String getEmail() {
         return email;
     }
@@ -43,6 +45,15 @@ public class Usuario {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+    
+     public String getApellidos() {
+        return apellidos;
+    }
+
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
+    }
+    
 
     public String getClave() {
         return clave;

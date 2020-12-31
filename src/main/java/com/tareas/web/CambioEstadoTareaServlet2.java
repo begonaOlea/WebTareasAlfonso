@@ -47,7 +47,7 @@ public class CambioEstadoTareaServlet2 extends HttpServlet {
             } catch (DBException ex) {
                 mensaje = ex.getMessage();
             }
-            mensaje="Estado Tarea Id.: "+id+" cambiado Ok";
+           mensaje="Tarea Id: "+id+". Cambio estado Ok";
         }
         
         RequestDispatcher rd = req.getRequestDispatcher("/mtto-tareas.jsp");

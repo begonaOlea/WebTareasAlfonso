@@ -2,23 +2,25 @@
 <%@ page pageEncoding="UTF-8" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <div class="row">
-    <div class="col-4">
-            <img src="img/tareillas.png" alt="logo" style="width:300px;height:200px;"/>
+    <div class="col-2">
+            <img src="tareillas.png" alt="Logo Tareas" style="width:150px;height:75px;"/>
     </div> 
     <div class="col-6">
-        <h1>TAREAS</h1>  
+        <h1 align="center">TAREAS</h1>  
     </div>
     <div class="col-2">
-        <c:choose>
+            <img src="tareillas.png" alt="Logo Tareas" style="width:150px;height:75px;"/>
+    </div> 
+    <div class="col-2">
+         <c:choose>
             <c:when test="${not empty sessionScope.usuario}">
-               <h5>Usuario: ${sessionScope.usuario.email}</h5> 
-               <a href="logout">Login</a>
+               <h5>Usuario: ${sessionScope.usuario.nombre}
+                            ${sessionScope.usuario.apellidos}</h5> 
+               <a href="logout">Logout</a>
             </c:when>
             <c:otherwise> 
                 <a href="login.jsp">Login</a>   
             </c:otherwise>
         </c:choose>
-        
     </div>
-    
 </div>

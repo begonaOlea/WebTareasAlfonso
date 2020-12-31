@@ -28,7 +28,7 @@
                 </div>
                 <div class="col-lg-4>
                     <c:if test="${not empty requestScope.mensaje}">
-                        <div class="alert alert sucess" role="alert">
+                        <div class="alert alert sucess" role="alert" style="color: chocolate;">
                             ${requestScope.mensaje}    
                         </div>
                     </c:if>
