@@ -14,7 +14,7 @@
 
             <div class="row">
                 <div class="col">
-                    <h1>Pantalla de Inicio Tareas !!!</h1>
+                    <h1>Pantalla Inicio de Tareas !!!</h1>
                 </div>
             </div>
             <!--Para Cookies -->
